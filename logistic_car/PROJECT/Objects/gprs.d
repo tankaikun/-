@@ -16,6 +16,7 @@
 .\objects\gprs.o: ..\bsp\inc\bsp.h
 .\objects\gprs.o: ..\uC-CPU\ARM-Cortex-M3\cpu.h
 .\objects\gprs.o: ..\uC-CPU\ARM-Cortex-M3\..\..\uC-CPU\cpu_def.h
+.\objects\gprs.o: ..\driver\inc\gps.h
 .\objects\gprs.o: G:\MDK5.2.3\ARM\ARMCC\Bin\..\include\string.h
 .\objects\gprs.o: ..\bsp\inc\usart2.h
 .\objects\gprs.o: ..\app\includes.h
@@ -33,3 +34,4 @@
 .\objects\gprs.o: G:\MDK5.2.3\ARM\ARMCC\Bin\..\include\errno.h
 .\objects\gprs.o: G:\MDK5.2.3\ARM\ARMCC\Bin\..\include\limits.h
 .\objects\gprs.o: ..\bsp\inc\usart.h
+.\objects\gprs.o: ..\net\inc\onenet.h

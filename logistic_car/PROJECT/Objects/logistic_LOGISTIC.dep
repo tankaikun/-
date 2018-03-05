@@ -1,5 +1,5 @@
 Dependencies for Project 'logistic', Target 'LOGISTIC': (DO NOT MODIFY !)
-F (..\app\main.c)(0x5A9C0C76)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\app -I ..\bsp\inc -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\uC-CPU -I ..\uC-CPU\ARM-Cortex-M3 -I ..\uC-LIB\Ports -I ..\uC-LIB -I ..\uCOS-II -I ..\uCOS-II\Ports -I ..\uCOS-II\Source -I ..\driver\inc -I ..\net\inc-I.\RTE\_LOGISTIC-IG:\MDK5.2.3\ARM\PACK\Keil\STM32F1xx_DFP\2.0.0\Device\Include-IG:\MDK5.2.3\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+F (..\app\main.c)(0x5A9C241A)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\app -I ..\bsp\inc -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\uC-CPU -I ..\uC-CPU\ARM-Cortex-M3 -I ..\uC-LIB\Ports -I ..\uC-LIB -I ..\uCOS-II -I ..\uCOS-II\Ports -I ..\uCOS-II\Source -I ..\driver\inc -I ..\net\inc-I.\RTE\_LOGISTIC-IG:\MDK5.2.3\ARM\PACK\Keil\STM32F1xx_DFP\2.0.0\Device\Include-IG:\MDK5.2.3\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (..\app\includes.h)(0x5A4C8A1A)
 I (G:\MDK5.2.3\ARM\ARMCC\include\stdio.h)(0x57F606B8)
 I (G:\MDK5.2.3\ARM\ARMCC\include\string.h)(0x57F606B8)
@@ -31,9 +31,10 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x504F415E)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
 I (..\bsp\inc\usart.h)(0x5A4C8604)
 I (..\bsp\inc\bsp.h)(0x5A8CC4AD)
-I (..\driver\inc\gps.h)(0x5A6D9724)
+I (..\driver\inc\gps.h)(0x5A9C2284)
 I (..\bsp\inc\usart3.h)(0x5A6DB7E8)
-I (..\net\inc\onenet.h)(0x5A9C0AD8)
+I (..\net\inc\onenet.h)(0x5A9C23C5)
+I (..\driver\inc\gprs.h)(0x5A9C22E8)
 F (..\app\stm32f10x_it.c)(0x5A4C8CEB)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\app -I ..\bsp\inc -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\uC-CPU -I ..\uC-CPU\ARM-Cortex-M3 -I ..\uC-LIB\Ports -I ..\uC-LIB -I ..\uCOS-II -I ..\uCOS-II\Ports -I ..\uCOS-II\Source -I ..\driver\inc -I ..\net\inc-I.\RTE\_LOGISTIC-IG:\MDK5.2.3\ARM\PACK\Keil\STM32F1xx_DFP\2.0.0\Device\Include-IG:\MDK5.2.3\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\stm32f10x_it.o --omf_browse .\objects\stm32f10x_it.crf --depend .\objects\stm32f10x_it.d)
 I (..\app\stm32f10x_it.h)(0x4D99A426)
 I (..\app\stm32f10x.h)(0x4D783CB4)
@@ -61,7 +62,7 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_spi.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x504F415E)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-F (..\bsp\src\bsp.c)(0x5A9C0A26)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\app -I ..\bsp\inc -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\uC-CPU -I ..\uC-CPU\ARM-Cortex-M3 -I ..\uC-LIB\Ports -I ..\uC-LIB -I ..\uCOS-II -I ..\uCOS-II\Ports -I ..\uCOS-II\Source -I ..\driver\inc -I ..\net\inc-I.\RTE\_LOGISTIC-IG:\MDK5.2.3\ARM\PACK\Keil\STM32F1xx_DFP\2.0.0\Device\Include-IG:\MDK5.2.3\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\bsp.o --omf_browse .\objects\bsp.crf --depend .\objects\bsp.d)
+F (..\bsp\src\bsp.c)(0x5A9C1DFF)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\app -I ..\bsp\inc -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\uC-CPU -I ..\uC-CPU\ARM-Cortex-M3 -I ..\uC-LIB\Ports -I ..\uC-LIB -I ..\uCOS-II -I ..\uCOS-II\Ports -I ..\uCOS-II\Source -I ..\driver\inc -I ..\net\inc-I.\RTE\_LOGISTIC-IG:\MDK5.2.3\ARM\PACK\Keil\STM32F1xx_DFP\2.0.0\Device\Include-IG:\MDK5.2.3\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\bsp.o --omf_browse .\objects\bsp.crf --depend .\objects\bsp.d)
 I (..\app\includes.h)(0x5A4C8A1A)
 I (G:\MDK5.2.3\ARM\ARMCC\include\stdio.h)(0x57F606B8)
 I (G:\MDK5.2.3\ARM\ARMCC\include\string.h)(0x57F606B8)
@@ -93,9 +94,10 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x504F415E)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
 I (..\bsp\inc\usart.h)(0x5A4C8604)
 I (..\bsp\inc\bsp.h)(0x5A8CC4AD)
-I (..\bsp\inc\usart2.h)(0x5A8D140B)
+I (..\bsp\inc\usart2.h)(0x5A9C1DA7)
 I (..\bsp\inc\usart3.h)(0x5A6DB7E8)
-I (..\driver\inc\gprs.h)(0x5A9C082C)
+I (..\driver\inc\gprs.h)(0x5A9C22E8)
+I (..\driver\inc\gps.h)(0x5A9C2284)
 F (..\bsp\src\led.c)(0x5A37F626)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\app -I ..\bsp\inc -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\uC-CPU -I ..\uC-CPU\ARM-Cortex-M3 -I ..\uC-LIB\Ports -I ..\uC-LIB -I ..\uCOS-II -I ..\uCOS-II\Ports -I ..\uCOS-II\Source -I ..\driver\inc -I ..\net\inc-I.\RTE\_LOGISTIC-IG:\MDK5.2.3\ARM\PACK\Keil\STM32F1xx_DFP\2.0.0\Device\Include-IG:\MDK5.2.3\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\led.o --omf_browse .\objects\led.crf --depend .\objects\led.d)
 I (..\bsp\inc\led.h)(0x5A5EA702)
 I (..\app\stm32f10x.h)(0x4D783CB4)
@@ -125,7 +127,7 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_spi.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x504F415E)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-F (..\bsp\src\usart3.c)(0x5A8CD556)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\app -I ..\bsp\inc -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\uC-CPU -I ..\uC-CPU\ARM-Cortex-M3 -I ..\uC-LIB\Ports -I ..\uC-LIB -I ..\uCOS-II -I ..\uCOS-II\Ports -I ..\uCOS-II\Source -I ..\driver\inc -I ..\net\inc-I.\RTE\_LOGISTIC-IG:\MDK5.2.3\ARM\PACK\Keil\STM32F1xx_DFP\2.0.0\Device\Include-IG:\MDK5.2.3\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\usart3.o --omf_browse .\objects\usart3.crf --depend .\objects\usart3.d)
+F (..\bsp\src\usart3.c)(0x5A9C1DA7)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\app -I ..\bsp\inc -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\uC-CPU -I ..\uC-CPU\ARM-Cortex-M3 -I ..\uC-LIB\Ports -I ..\uC-LIB -I ..\uCOS-II -I ..\uCOS-II\Ports -I ..\uCOS-II\Source -I ..\driver\inc -I ..\net\inc-I.\RTE\_LOGISTIC-IG:\MDK5.2.3\ARM\PACK\Keil\STM32F1xx_DFP\2.0.0\Device\Include-IG:\MDK5.2.3\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\usart3.o --omf_browse .\objects\usart3.crf --depend .\objects\usart3.d)
 I (..\bsp\inc\usart3.h)(0x5A6DB7E8)
 I (..\app\stm32f10x.h)(0x4D783CB4)
 I (..\CORE\core_cm3.h)(0x4D523B58)
@@ -147,8 +149,8 @@ I (..\bsp\inc\bsp.h)(0x5A8CC4AD)
 I (..\uC-CPU\ARM-Cortex-M3\cpu.h)(0x56E11D91)
 I (..\uC-CPU\ARM-Cortex-M3\..\..\uC-CPU\cpu_def.h)(0x56E11C41)
 I (G:\MDK5.2.3\ARM\ARMCC\include\stdio.h)(0x57F606B8)
-F (..\bsp\src\usart2.c)(0x5A9C0BE9)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\app -I ..\bsp\inc -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\uC-CPU -I ..\uC-CPU\ARM-Cortex-M3 -I ..\uC-LIB\Ports -I ..\uC-LIB -I ..\uCOS-II -I ..\uCOS-II\Ports -I ..\uCOS-II\Source -I ..\driver\inc -I ..\net\inc-I.\RTE\_LOGISTIC-IG:\MDK5.2.3\ARM\PACK\Keil\STM32F1xx_DFP\2.0.0\Device\Include-IG:\MDK5.2.3\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\usart2.o --omf_browse .\objects\usart2.crf --depend .\objects\usart2.d)
-I (..\bsp\inc\usart2.h)(0x5A8D140B)
+F (..\bsp\src\usart2.c)(0x5A9C1DA7)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\app -I ..\bsp\inc -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\uC-CPU -I ..\uC-CPU\ARM-Cortex-M3 -I ..\uC-LIB\Ports -I ..\uC-LIB -I ..\uCOS-II -I ..\uCOS-II\Ports -I ..\uCOS-II\Source -I ..\driver\inc -I ..\net\inc-I.\RTE\_LOGISTIC-IG:\MDK5.2.3\ARM\PACK\Keil\STM32F1xx_DFP\2.0.0\Device\Include-IG:\MDK5.2.3\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\usart2.o --omf_browse .\objects\usart2.crf --depend .\objects\usart2.d)
+I (..\bsp\inc\usart2.h)(0x5A9C1DA7)
 I (..\app\stm32f10x.h)(0x4D783CB4)
 I (..\CORE\core_cm3.h)(0x4D523B58)
 I (G:\MDK5.2.3\ARM\ARMCC\include\stdint.h)(0x57F606B8)
@@ -165,7 +167,7 @@ I (G:\MDK5.2.3\ARM\ARMCC\include\stdarg.h)(0x57F606B8)
 I (G:\MDK5.2.3\ARM\ARMCC\include\stdio.h)(0x57F606B8)
 I (G:\MDK5.2.3\ARM\ARMCC\include\string.h)(0x57F606B8)
 F (..\driver\scr\gps.c)(0x5A9C0B9F)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\app -I ..\bsp\inc -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\uC-CPU -I ..\uC-CPU\ARM-Cortex-M3 -I ..\uC-LIB\Ports -I ..\uC-LIB -I ..\uCOS-II -I ..\uCOS-II\Ports -I ..\uCOS-II\Source -I ..\driver\inc -I ..\net\inc-I.\RTE\_LOGISTIC-IG:\MDK5.2.3\ARM\PACK\Keil\STM32F1xx_DFP\2.0.0\Device\Include-IG:\MDK5.2.3\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\gps.o --omf_browse .\objects\gps.crf --depend .\objects\gps.d)
-I (..\driver\inc\gps.h)(0x5A6D9724)
+I (..\driver\inc\gps.h)(0x5A9C2284)
 I (..\app\stm32f10x.h)(0x4D783CB4)
 I (..\CORE\core_cm3.h)(0x4D523B58)
 I (G:\MDK5.2.3\ARM\ARMCC\include\stdint.h)(0x57F606B8)
@@ -183,8 +185,8 @@ I (G:\MDK5.2.3\ARM\ARMCC\include\stdio.h)(0x57F606B8)
 I (..\bsp\inc\bsp.h)(0x5A8CC4AD)
 I (..\uC-CPU\ARM-Cortex-M3\cpu.h)(0x56E11D91)
 I (..\uC-CPU\ARM-Cortex-M3\..\..\uC-CPU\cpu_def.h)(0x56E11C41)
-F (..\driver\scr\gprs.c)(0x5A9C082C)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\app -I ..\bsp\inc -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\uC-CPU -I ..\uC-CPU\ARM-Cortex-M3 -I ..\uC-LIB\Ports -I ..\uC-LIB -I ..\uCOS-II -I ..\uCOS-II\Ports -I ..\uCOS-II\Source -I ..\driver\inc -I ..\net\inc-I.\RTE\_LOGISTIC-IG:\MDK5.2.3\ARM\PACK\Keil\STM32F1xx_DFP\2.0.0\Device\Include-IG:\MDK5.2.3\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\gprs.o --omf_browse .\objects\gprs.crf --depend .\objects\gprs.d)
-I (..\driver\inc\gprs.h)(0x5A9C082C)
+F (..\driver\scr\gprs.c)(0x5A9CA7B3)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\app -I ..\bsp\inc -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\uC-CPU -I ..\uC-CPU\ARM-Cortex-M3 -I ..\uC-LIB\Ports -I ..\uC-LIB -I ..\uCOS-II -I ..\uCOS-II\Ports -I ..\uCOS-II\Source -I ..\driver\inc -I ..\net\inc-I.\RTE\_LOGISTIC-IG:\MDK5.2.3\ARM\PACK\Keil\STM32F1xx_DFP\2.0.0\Device\Include-IG:\MDK5.2.3\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\gprs.o --omf_browse .\objects\gprs.crf --depend .\objects\gprs.d)
+I (..\driver\inc\gprs.h)(0x5A9C22E8)
 I (..\app\stm32f10x.h)(0x4D783CB4)
 I (..\CORE\core_cm3.h)(0x4D523B58)
 I (G:\MDK5.2.3\ARM\ARMCC\include\stdint.h)(0x57F606B8)
@@ -200,8 +202,9 @@ I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
 I (..\bsp\inc\bsp.h)(0x5A8CC4AD)
 I (..\uC-CPU\ARM-Cortex-M3\cpu.h)(0x56E11D91)
 I (..\uC-CPU\ARM-Cortex-M3\..\..\uC-CPU\cpu_def.h)(0x56E11C41)
+I (..\driver\inc\gps.h)(0x5A9C2284)
 I (G:\MDK5.2.3\ARM\ARMCC\include\string.h)(0x57F606B8)
-I (..\bsp\inc\usart2.h)(0x5A8D140B)
+I (..\bsp\inc\usart2.h)(0x5A9C1DA7)
 I (..\app\includes.h)(0x5A4C8A1A)
 I (G:\MDK5.2.3\ARM\ARMCC\include\stdio.h)(0x57F606B8)
 I (G:\MDK5.2.3\ARM\ARMCC\include\ctype.h)(0x57F606B6)
@@ -217,8 +220,9 @@ I (..\app\..\uC-LIB\lib_str.h)(0x56E11C42)
 I (G:\MDK5.2.3\ARM\ARMCC\include\errno.h)(0x57F606B6)
 I (G:\MDK5.2.3\ARM\ARMCC\include\limits.h)(0x57F606B6)
 I (..\bsp\inc\usart.h)(0x5A4C8604)
-F (..\net\src\onenet.c)(0x5A9C0AFA)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\app -I ..\bsp\inc -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\uC-CPU -I ..\uC-CPU\ARM-Cortex-M3 -I ..\uC-LIB\Ports -I ..\uC-LIB -I ..\uCOS-II -I ..\uCOS-II\Ports -I ..\uCOS-II\Source -I ..\driver\inc -I ..\net\inc-I.\RTE\_LOGISTIC-IG:\MDK5.2.3\ARM\PACK\Keil\STM32F1xx_DFP\2.0.0\Device\Include-IG:\MDK5.2.3\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\onenet.o --omf_browse .\objects\onenet.crf --depend .\objects\onenet.d)
-I (..\driver\inc\gprs.h)(0x5A9C082C)
+I (..\net\inc\onenet.h)(0x5A9C23C5)
+F (..\net\src\onenet.c)(0x5A9C23B3)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\app -I ..\bsp\inc -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\uC-CPU -I ..\uC-CPU\ARM-Cortex-M3 -I ..\uC-LIB\Ports -I ..\uC-LIB -I ..\uCOS-II -I ..\uCOS-II\Ports -I ..\uCOS-II\Source -I ..\driver\inc -I ..\net\inc-I.\RTE\_LOGISTIC-IG:\MDK5.2.3\ARM\PACK\Keil\STM32F1xx_DFP\2.0.0\Device\Include-IG:\MDK5.2.3\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\onenet.o --omf_browse .\objects\onenet.crf --depend .\objects\onenet.d)
+I (..\driver\inc\gprs.h)(0x5A9C22E8)
 I (..\app\stm32f10x.h)(0x4D783CB4)
 I (..\CORE\core_cm3.h)(0x4D523B58)
 I (G:\MDK5.2.3\ARM\ARMCC\include\stdint.h)(0x57F606B8)
@@ -234,7 +238,8 @@ I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
 I (..\bsp\inc\bsp.h)(0x5A8CC4AD)
 I (..\uC-CPU\ARM-Cortex-M3\cpu.h)(0x56E11D91)
 I (..\uC-CPU\ARM-Cortex-M3\..\..\uC-CPU\cpu_def.h)(0x56E11C41)
-I (..\net\inc\onenet.h)(0x5A9C0AD8)
+I (..\driver\inc\gps.h)(0x5A9C2284)
+I (..\net\inc\onenet.h)(0x5A9C23C5)
 I (..\bsp\inc\usart.h)(0x5A4C8604)
 I (G:\MDK5.2.3\ARM\ARMCC\include\stdio.h)(0x57F606B8)
 I (..\app\includes.h)(0x5A4C8A1A)

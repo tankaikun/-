@@ -2,6 +2,7 @@
 #include "string.h" 
 #include "usart2.h"
 #include "includes.h"
+#include "onenet.h"
 
 uint8_t GPRS_CSQ[3];
 u8 Flag_send_message=0;		//1--启动发送经纬度；0--不发送
@@ -65,7 +66,7 @@ uint8_t gprs_send_cmd(uint8_t *cmd,uint8_t *ack,uint16_t waittime)
 				USART2_RX_STA=0;
 			} 
 		}
-		printf("gprs_send_cmd()等待超时\r\n");
+		// printf("gprs_send_cmd()等待超时\r\n");
 		if(waittime==0)
 			res=1; 
 	}
@@ -182,13 +183,36 @@ void gprs_test(void)
 	}
 }
 
-/*
-void delay(void)
+
+//extern gps_msg_s gpsx;
+
+gps_msg_s gpsx;
+
+
+//显示GPS定位信息 
+void Gps_Msg_Show(void)
 {
-	int i =100000;
-	while(i--);
+ 	float tp;		
+	
+	tp = gpsx.longitude;
+		lon = tp/10000;
+	printf("Longitude:%.5f %1c   ", lon, gpsx.ewhemi);	//得到经度字符串
+	printf("\n");
+  
+	tp = gpsx.latitude;	
+	lat = tp/10000;
+	printf("Latitude:%.5f %1c   ",lat,gpsx.nshemi);	     //得到纬度字符串
+	printf("\n");
+	
+	printf("UTC Date:%04d/%02d/%02d   ",gpsx.utc.year,gpsx.utc.month,gpsx.utc.day);	//显示UTC日期
+  printf("\n");  
+	
+	printf("UTC Time:%02d:%02d:%02d   ",gpsx.utc.hour,gpsx.utc.min,gpsx.utc.sec);	//显示UTC时间
+	printf("\n");
 }
-*/
+
+
+
 
 
 

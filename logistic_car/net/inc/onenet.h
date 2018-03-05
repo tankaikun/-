@@ -3,6 +3,9 @@
 
 #include "stm32f10x.h"
 
+extern float lon;
+extern float lat;
+
 void OneNet_SendData(void);
 
 void OneNet_RevPro(unsigned char *dataPtr);

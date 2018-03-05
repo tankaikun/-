@@ -16,6 +16,7 @@
 .\objects\onenet.o: ..\bsp\inc\bsp.h
 .\objects\onenet.o: ..\uC-CPU\ARM-Cortex-M3\cpu.h
 .\objects\onenet.o: ..\uC-CPU\ARM-Cortex-M3\..\..\uC-CPU\cpu_def.h
+.\objects\onenet.o: ..\driver\inc\gps.h
 .\objects\onenet.o: ..\net\inc\onenet.h
 .\objects\onenet.o: ..\bsp\inc\usart.h
 .\objects\onenet.o: G:\MDK5.2.3\ARM\ARMCC\Bin\..\include\stdio.h

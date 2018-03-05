@@ -2,6 +2,7 @@
 #include "gps.h"
 #include "usart3.h"
 #include "onenet.h"
+#include "gprs.h"
  /*
 *********************************************************************************************************
 *                                       LOCAL GLOBAL VARIABLES
@@ -143,30 +144,14 @@ extern uint8_t gps_rbuff[GPS_RBUFF_SIZE];
 * Note    : none.
 =======================================================================
 */
-gps_msg_s gpsx;
+extern gps_msg_s gpsx;
 
-//显示GPS定位信息 
-void Gps_Msg_Show(void)
-{
- 	float tp;		
-	
-	tp = gpsx.longitude;	   
-	printf("Longitude:%.5f %1c   ", tp/=10000, gpsx.ewhemi);	//得到经度字符串
-	printf("\n");
-  
-	tp = gpsx.latitude;	
-	printf("Latitude:%.5f %1c   ",tp/=10000,gpsx.nshemi);	//得到纬度字符串
-	printf("\n");
-	
-	printf("UTC Date:%04d/%02d/%02d   ",gpsx.utc.year,gpsx.utc.month,gpsx.utc.day);	//显示UTC日期
-  printf("\n");  
-	
-	printf("UTC Time:%02d:%02d:%02d   ",gpsx.utc.hour,gpsx.utc.min,gpsx.utc.sec);	//显示UTC时间
-	printf("\n");
-}
 
 static void App_Send_Data_Onenet(void)
 {
+	
+	gprs_test();
+	
 	while(1)
 	{
 		OSTimeDlyHMSM(0, 0, 3, 900);
@@ -184,7 +169,7 @@ static void App_Send_Data_Onenet(void)
 		}
 
 		// 将经纬度信息通过GPRS网络发送到onenet平台
-		//OneNet_SendData();
+		OneNet_SendData();
 		
 		// 任务挂起，30S
 		OSTimeDlyHMSM(0, 0, 0, 900);

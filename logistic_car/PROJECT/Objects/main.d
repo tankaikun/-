@@ -34,3 +34,4 @@
 .\objects\main.o: ..\driver\inc\gps.h
 .\objects\main.o: ..\bsp\inc\usart3.h
 .\objects\main.o: ..\net\inc\onenet.h
+.\objects\main.o: ..\driver\inc\gprs.h

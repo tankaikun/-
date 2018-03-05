@@ -27,8 +27,6 @@ typedef struct
 	uint16_t speed;					//地面速率,放大了1000倍,实际除以10.单位:0.001公里/小时	 
 }gps_msg_s;
 
-
-
 void GPS_Analysis(gps_msg_s *gpsx,uint8_t *buf);
 
 

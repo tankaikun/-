@@ -424,6 +424,11 @@
               <FileType>1</FileType>
               <FilePath>..\bsp\src\usart2.c</FilePath>
             </File>
+            <File>
+              <FileName>spi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\bsp\src\spi.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -439,10 +444,22 @@
               <FileType>1</FileType>
               <FilePath>..\driver\scr\gprs.c</FilePath>
             </File>
+            <File>
+              <FileName>nrf24l01.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\driver\scr\nrf24l01.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
           <GroupName>NET</GroupName>
+          <Files>
+            <File>
+              <FileName>onenet.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\net\src\onenet.c</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>CORE</GroupName>

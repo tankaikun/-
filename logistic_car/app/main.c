@@ -3,6 +3,8 @@
 #include "usart3.h"
 #include "onenet.h"
 #include "gprs.h"
+#include "nrf24l01.h"
+
  /*
 *********************************************************************************************************
 *                                       LOCAL GLOBAL VARIABLES
@@ -57,6 +59,8 @@ int main(void)
 	CPU_IntDis();		
 	
 	OSInit();                                                   /* Initialize "uC/OS-II, The Real-Time Kernel".         */
+
+	
 	BSP_Init();                                                 /* Initialize BSP functions.  */
   
 	App_DispScr_SignOn();
@@ -150,13 +154,31 @@ extern gps_msg_s gpsx;
 static void App_Send_Data_Onenet(void)
 {
 	
-	gprs_test();
+	uint8_t rxbuf[4] = {1};
+	uint16_t ret = 0;
+	int i =0;
+	//gprs_test();
+	
 	
 	while(1)
 	{
-		OSTimeDlyHMSM(0, 0, 3, 900);
 		printf("App_Send_Data_Onenet\r\n");
-
+		
+		NRF_RX_Mode();
+		ret = NRF_Rx_Dat(rxbuf);
+		if( ret == 0)
+		{
+			printf("wireless receive error\r\n");
+		}
+		else 
+		{
+			printf("receive ret = 0x%x\r\n",ret);
+			for(i = 0; i < 4; i++)
+			{
+				printf("receive data = %d\r\n", rxbuf[i]);
+			}	
+		}
+		
 		if(flag_gps == 1)
 		{
 			// 获取经纬度信息
@@ -169,7 +191,7 @@ static void App_Send_Data_Onenet(void)
 		}
 
 		// 将经纬度信息通过GPRS网络发送到onenet平台
-		OneNet_SendData();
+		//OneNet_SendData();
 		
 		// 任务挂起，30S
 		OSTimeDlyHMSM(0, 0, 0, 900);

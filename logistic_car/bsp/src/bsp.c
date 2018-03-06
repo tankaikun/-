@@ -77,8 +77,6 @@ void UnableJTAG(void)
 
 
 
-
-
 /*******************************************************************************
 * Function Name  : GPIO_Configuration
 * Description    : Configures the different GPIO ports.
@@ -132,6 +130,7 @@ void BSP_Init(void)
 	SPI_NRF_Init();
 
 	NRF_Check();
+	
 	
 }
 

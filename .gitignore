@@ -1,3 +1,4 @@
 *.[ao]
 *.htm
-./logistic_car/PROJECT/Objects
+*.crf
+/logitstic_car/PROJECT/Objects

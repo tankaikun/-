@@ -151,11 +151,11 @@ uint32_t NMEA_Str2num(uint8_t *buf,uint8_t* dx)
 * 函数名称： GPS_Analysis()
 * 函数功能： 解析gps数据
 * 函数参数：
-*         gpsx ：gps的数据包
+*         g_gpsx ：gps的数据包
 *         buf： 串口接收的数据
 * 返回值：   none
 */
-void GPS_Analysis(gps_msg_s *gpsx,uint8_t *buf)
+void GPS_Analysis(gps_msg_s *g_gpsx,uint8_t *buf)
 {
 	uint32_t temp;     // 临时操作数
 	char *pt;
@@ -171,9 +171,9 @@ void GPS_Analysis(gps_msg_s *gpsx,uint8_t *buf)
 	{
 		temp = NMEA_Str2num((p+posx), &dx) / NMEA_Pow(10, dx);
 		
-		gpsx->utc.hour = (uint8_t)(temp / NMEA_Pow(10, 4));
-		gpsx->utc.min = temp / NMEA_Pow(10, 2) % NMEA_Pow(10, 2);
-		gpsx->utc.sec = temp % NMEA_Pow(10, 2);
+		g_gpsx->utc.hour = (uint8_t)(temp / NMEA_Pow(10, 4));
+		g_gpsx->utc.min = temp / NMEA_Pow(10, 2) % NMEA_Pow(10, 2);
+		g_gpsx->utc.sec = temp % NMEA_Pow(10, 2);
 		
 	}
 	// 纬度：ddmm.mmmmm
@@ -183,19 +183,19 @@ void GPS_Analysis(gps_msg_s *gpsx,uint8_t *buf)
 		temp = NMEA_Str2num(p+posx, &dx);
 		// debug("jingdu | temp = %d; dx = %d \r\n", temp,dx);
 		
-		gpsx->latitude = temp / NMEA_Pow(10, dx+2);  // 得到度数
+		g_gpsx->latitude = temp / NMEA_Pow(10, dx+2);  // 得到度数
 		rs = temp % NMEA_Pow(10, dx+2);               // 得到分数
-		// debug("jingdu | dushu = %d; fenshu = %f \r\n", gpsx->latitude,rs);
+		// debug("jingdu | dushu = %d; fenshu = %f \r\n", g_gpsx->latitude,rs);
 		
-		gpsx->latitude = gpsx->latitude*NMEA_Pow(10, dx) + rs/60;
-		// debug("gpsx->latitude = %d \r\n", gpsx->latitude);
+		g_gpsx->latitude = g_gpsx->latitude*NMEA_Pow(10, dx) + rs/60;
+		// debug("g_gpsx->latitude = %d \r\n", g_gpsx->latitude);
 		// debug("\r\n");
 	}
 
 	posx = NMEA_Comma_Pos(p, 4);
 	if(posx != 0xff)
 	{
-		gpsx->nshemi = *(p+posx);
+		g_gpsx->nshemi = *(p+posx);
 	}
 
 	// 经度：dddmm.mmmmm
@@ -203,24 +203,24 @@ void GPS_Analysis(gps_msg_s *gpsx,uint8_t *buf)
 	if(posx != 0xff)
 	{
 		temp = NMEA_Str2num(p+posx, &dx);
-		gpsx->longitude = temp / NMEA_Pow(10, dx+2);
+		g_gpsx->longitude = temp / NMEA_Pow(10, dx+2);
 		rs = temp % NMEA_Pow(10, dx+2);
-		gpsx->longitude = gpsx->longitude*NMEA_Pow(10, dx) + rs/60;
+		g_gpsx->longitude = g_gpsx->longitude*NMEA_Pow(10, dx) + rs/60;
 	}
 
 	posx = NMEA_Comma_Pos(p, 6);
 	if(posx != 0xff)
 	{
-		gpsx->ewhemi = *(p+posx);
+		g_gpsx->ewhemi = *(p+posx);
 	}
 
 	posx=NMEA_Comma_Pos(p,9);								//得到UTC日期
 	if(posx!=0XFF)
 	{
 		temp=NMEA_Str2num(p+posx,&dx);		 				//得到UTC日期
-		gpsx->utc.day=temp/10000;
-		gpsx->utc.month=(temp/100)%100;
-		gpsx->utc.year=2000+temp%100;	 	 
+		g_gpsx->utc.day=temp/10000;
+		g_gpsx->utc.month=(temp/100)%100;
+		g_gpsx->utc.year=2000+temp%100;	 	 
 	} 
 }
 

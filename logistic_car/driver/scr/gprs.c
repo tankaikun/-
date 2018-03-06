@@ -184,9 +184,9 @@ void gprs_test(void)
 }
 
 
-//extern gps_msg_s gpsx;
+//extern gps_msg_s g_gpsx;
 
-gps_msg_s gpsx;
+gps_msg_s g_gpsx;
 
 
 //显示GPS定位信息 
@@ -194,20 +194,20 @@ void Gps_Msg_Show(void)
 {
  	float tp;		
 	
-	tp = gpsx.longitude;
+	tp = g_gpsx.longitude;
 		lon = tp/10000;
-	printf("Longitude:%.5f %1c   ", lon, gpsx.ewhemi);	//得到经度字符串
+	printf("Longitude:%.5f %1c   ", lon, g_gpsx.ewhemi);	//得到经度字符串
 	printf("\n");
   
-	tp = gpsx.latitude;	
+	tp = g_gpsx.latitude;	
 	lat = tp/10000;
-	printf("Latitude:%.5f %1c   ",lat,gpsx.nshemi);	     //得到纬度字符串
+	printf("Latitude:%.5f %1c   ",lat,g_gpsx.nshemi);	     //得到纬度字符串
 	printf("\n");
 	
-	printf("UTC Date:%04d/%02d/%02d   ",gpsx.utc.year,gpsx.utc.month,gpsx.utc.day);	//显示UTC日期
+	printf("UTC Date:%04d/%02d/%02d   ",g_gpsx.utc.year,g_gpsx.utc.month,g_gpsx.utc.day);	//显示UTC日期
   printf("\n");  
 	
-	printf("UTC Time:%02d:%02d:%02d   ",gpsx.utc.hour,gpsx.utc.min,gpsx.utc.sec);	//显示UTC时间
+	printf("UTC Time:%02d:%02d:%02d   ",g_gpsx.utc.hour,g_gpsx.utc.min,g_gpsx.utc.sec);	//显示UTC时间
 	printf("\n");
 }
 

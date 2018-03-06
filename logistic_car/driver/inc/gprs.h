@@ -5,7 +5,7 @@
 #include "bsp.h"
 #include "gps.h"
 
-extern gps_msg_s gpsx;
+extern gps_msg_s g_gpsx;
 
 uint8_t* gprs_check_cmd(uint8_t *str);
 uint8_t gprs_send_cmd(uint8_t *cmd,uint8_t *ack,uint16_t waittime);

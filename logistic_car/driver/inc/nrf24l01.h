@@ -11,6 +11,8 @@
 
 #define CHANAL				  40			//频道选择
 
+#define WIRELESS_RECEIVE_DATA_LENGTH     4
+
 // SPI(nRF24L01) commands
 #define NRF_READ_REG    0x00  // Define read command to register
 #define NRF_WRITE_REG   0x20  // Define write command to register

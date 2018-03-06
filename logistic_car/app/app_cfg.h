@@ -51,8 +51,8 @@
 
 #define  APP_TASK_START_PRIO                               2
 #define  APP_TASK_SEND_ONENET_PRIO                         3
-#define  APP_TASK_KBD_PRIO                                 4
-#define  APP_TASK_Joystick_PRIO                            5
+#define  APP_TASK_ANALY_GPS_PRIO                           4
+#define  APP_TASK_GET_WIRELESS_NODE_PRIO                   5
 
 
 
@@ -65,8 +65,8 @@
 
 #define  APP_TASK_START_STK_SIZE                         128
 #define  APP_TASK_ONENET_STK_SIZE                        256
-#define  APP_TASK_KBD_STK_SIZE                           128
-#define  APP_TASK_Joystick_STK_SIZE                      128
+#define  APP_TASK_GPS_STK_SIZE                           256
+#define  APP_TASK_NODE_STK_SIZE                     	   128
 
 /*
 *********************************************************************************************************

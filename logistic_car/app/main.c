@@ -4,6 +4,7 @@
 #include "onenet.h"
 #include "gprs.h"
 #include "nrf24l01.h"
+#include "string.h"
 
  /*
 *********************************************************************************************************
@@ -13,6 +14,9 @@
 
 static  OS_STK App_TaskStartStk[APP_TASK_START_STK_SIZE];
 static  OS_STK App_SendOnenetStk[APP_TASK_ONENET_STK_SIZE];
+static  OS_STK App_AnalyGPS_Data[APP_TASK_GPS_STK_SIZE];
+static  OS_STK App_GetWirelessNode_Data[APP_TASK_NODE_STK_SIZE];
+
 
 
  /*
@@ -26,6 +30,10 @@ static  void App_DispScr_SignOn(void);
 static  void App_TaskStart(void* p_arg);
 
 static void App_Send_Data_Onenet(void);
+
+static void App_Analy_GPS_Data(void);
+
+static void App_Get_WirelessNode_Data(void);
 
 
 
@@ -49,8 +57,6 @@ void TestPrintf(void)
 }
 
  
- 
-
 int main(void)
 { 
 		 	
@@ -71,7 +77,7 @@ int main(void)
 	                      (void *) 0,
 	           (OS_STK *) &App_TaskStartStk[APP_TASK_START_STK_SIZE - 1],
 	           (INT8U) APP_TASK_START_PRIO);
-	printf("Creat App_TaskStartr\n");
+	printf("main | Creat App_TaskStartr\n");
 														
 	OSTaskNameSet(APP_TASK_START_PRIO, (CPU_INT08U *) "Start Task", &os_err);
            
@@ -111,28 +117,149 @@ static  void App_TaskStart(void* p_arg)
 
 
 	// 用户创建任务
+	// GPS的数据分析
+	os_err = OSTaskCreate((void (*) (void *)) App_Analy_GPS_Data,
+	                      (void *) 0,
+	           (OS_STK *) &App_AnalyGPS_Data[APP_TASK_GPS_STK_SIZE - 1],
+	           (INT8U) APP_TASK_ANALY_GPS_PRIO);
+	printf("App_TaskStart | Creat App_Analy_GPS_Data\n");												
+	OSTaskNameSet(APP_TASK_ANALY_GPS_PRIO, (CPU_INT08U *) "Analy GPS Data Task", &os_err);
+
+	// 无线节点的通信获取胎压信息
+	os_err = OSTaskCreate((void (*) (void *)) App_Get_WirelessNode_Data,
+	                      (void *) 0,
+	           (OS_STK *) &App_GetWirelessNode_Data[APP_TASK_NODE_STK_SIZE - 1],
+	           (INT8U) APP_TASK_GET_WIRELESS_NODE_PRIO);
+	printf("App_TaskStart | Creat App_Get_WirelessNode_Data\n");												
+	OSTaskNameSet(APP_TASK_GET_WIRELESS_NODE_PRIO, (CPU_INT08U *) "Get Wireless Data Task", &os_err);
+
+	// GPRS的数据发送
 	os_err = OSTaskCreate((void (*) (void *)) App_Send_Data_Onenet,
 	                      (void *) 0,
 	           (OS_STK *) &App_SendOnenetStk[APP_TASK_ONENET_STK_SIZE - 1],
 	           (INT8U) APP_TASK_SEND_ONENET_PRIO);
-	printf("Creat App_Send_Data_Onenet\n");
-														
-	OSTaskNameSet(APP_TASK_START_PRIO, (CPU_INT08U *) "Send Onenet Task", &os_err);
+	printf("App_TaskStart | Creat App_Send_Data_Onenet\n");														
+	OSTaskNameSet(APP_TASK_SEND_ONENET_PRIO, (CPU_INT08U *) "Send Onenet Task", &os_err);
 
-
+	
 	// 交出cpu，以后要在这里将任务删除掉
 	while (DEF_TRUE)
 	{
 		printf("Creat App_Send_Data_Onenet\n");
-		OSTimeDlyHMSM(1, 0, 0, 200);
+		OSTimeDlyHMSM(10, 0, 0, 200);
 	}
 }
 
 
 
 
-extern int flag_gps;
-extern uint8_t gps_rbuff[GPS_RBUFF_SIZE];
+/*
+---------------------------------------------------------------------------
+*                             App_Analy_GPS_Data()
+*
+* Description : 通过GPS获取经纬度信息，并且将数据解析
+*
+* Argument	: none.
+*
+* Return   : none.
+*
+* Caller   : App_TaskStart().
+*
+* Note    : none.
+=======================================================================
+*/
+extern int g_flag_gps;                        // gps数据获取成功标志    
+extern uint8_t g_gps_rbuff[GPS_RBUFF_SIZE];   // gps串口等待解析数据
+extern gps_msg_s g_gpsx;                      // gps数据解析后的结构体封装
+
+static void App_Analy_GPS_Data(void)
+{
+	
+	while(1)
+	{
+		debug("App_Analy_GPS_Data\r\n");
+		
+		if(g_flag_gps == 1)
+		{
+			g_flag_gps = 0;
+
+			GPS_Analysis(&g_gpsx, g_gps_rbuff);
+			
+			Gps_Msg_Show();		
+		}
+		
+		OSTimeDlyHMSM(0, 0, 1, 0);
+	}
+
+}
+
+
+
+/*
+---------------------------------------------------------------------------
+*                             App_Get_WirelessNode_Data()
+*
+* Description : 通过无线模块获取汽车的胎压信息
+*
+* Argument	: none.
+*
+* Return   : none.
+*
+* Caller   : App_TaskStart().
+*
+* Note    : none.
+=======================================================================
+*/
+
+uint8_t g_wireless_rxbuf[WIRELESS_RECEIVE_DATA_LENGTH];
+
+static void App_Get_WirelessNode_Data(void)
+{
+	
+	uint16_t ret = 0;
+	int i =0;
+
+	while(1)
+	{
+		debug("App_Get_WirelessNode_Data\r\n");
+
+		NRF_RX_Mode();
+
+		memset(g_wireless_rxbuf, 0 ,4);
+		
+		ret = NRF_Rx_Dat(g_wireless_rxbuf);
+		if( ret == 0)
+		{
+			debug("wireless receive error\r\n");
+		}
+		else 
+		{
+			debug("receive ret = 0x%x\r\n",ret);
+			for(i = 0; i < 4; i++)
+			{
+				debug("receive data = %d\r\n", g_wireless_rxbuf[i]);
+			}	
+		}
+
+		OSTimeDlyHMSM(0, 0, 3, 0);
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
 ---------------------------------------------------------------------------
 *                             App_Send_Data_Onenet()
@@ -148,60 +275,24 @@ extern uint8_t gps_rbuff[GPS_RBUFF_SIZE];
 * Note    : none.
 =======================================================================
 */
-extern gps_msg_s gpsx;
 
 
 static void App_Send_Data_Onenet(void)
 {
-	
-	uint8_t rxbuf[4] = {1};
-	uint16_t ret = 0;
-	int i =0;
-	//gprs_test();
-	
+	gprs_test();  
 	
 	while(1)
 	{
 		printf("App_Send_Data_Onenet\r\n");
 		
-		NRF_RX_Mode();
-		ret = NRF_Rx_Dat(rxbuf);
-		if( ret == 0)
-		{
-			printf("wireless receive error\r\n");
-		}
-		else 
-		{
-			printf("receive ret = 0x%x\r\n",ret);
-			for(i = 0; i < 4; i++)
-			{
-				printf("receive data = %d\r\n", rxbuf[i]);
-			}	
-		}
-		
-		if(flag_gps == 1)
-		{
-			// 获取经纬度信息
-			flag_gps = 0;
-				
-			GPS_Analysis(&gpsx, gps_rbuff);
-			
-			Gps_Msg_Show();
-			
-		}
-
 		// 将经纬度信息通过GPRS网络发送到onenet平台
-		//OneNet_SendData();
+		OneNet_SendData();
 		
 		// 任务挂起，30S
 		OSTimeDlyHMSM(0, 0, 0, 900);
 	}
 
 }
-
-
-
-
 
 
 
@@ -232,19 +323,6 @@ static  void App_DispScr_SignOn(void)
    printf("  #Ticks: %d  \r\n", OSTime);
    printf("  #CtxSw: %d  \r\n\r\n", OSCtxSwCtr);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /*

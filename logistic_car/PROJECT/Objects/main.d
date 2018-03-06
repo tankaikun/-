@@ -35,3 +35,4 @@
 .\objects\main.o: ..\bsp\inc\usart3.h
 .\objects\main.o: ..\net\inc\onenet.h
 .\objects\main.o: ..\driver\inc\gprs.h
+.\objects\main.o: ..\driver\inc\nrf24l01.h

@@ -1,0 +1,16 @@
+.\objects\spi.o: ..\bsp\src\spi.c
+.\objects\spi.o: ..\bsp\inc\spi.h
+.\objects\spi.o: ..\app\stm32f10x.h
+.\objects\spi.o: ..\CORE\core_cm3.h
+.\objects\spi.o: G:\MDK5.2.3\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\spi.o: ..\app\system_stm32f10x.h
+.\objects\spi.o: ..\app\stm32f10x_conf.h
+.\objects\spi.o: ..\STM32F10x_FWLib\inc\stm32f10x_dma.h
+.\objects\spi.o: ..\app\stm32f10x.h
+.\objects\spi.o: ..\STM32F10x_FWLib\inc\stm32f10x_gpio.h
+.\objects\spi.o: ..\STM32F10x_FWLib\inc\stm32f10x_rcc.h
+.\objects\spi.o: ..\STM32F10x_FWLib\inc\stm32f10x_spi.h
+.\objects\spi.o: ..\STM32F10x_FWLib\inc\stm32f10x_tim.h
+.\objects\spi.o: ..\STM32F10x_FWLib\inc\stm32f10x_usart.h
+.\objects\spi.o: ..\STM32F10x_FWLib\inc\misc.h
+.\objects\spi.o: ..\driver\inc\nrf24l01.h

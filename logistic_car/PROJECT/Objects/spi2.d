@@ -1,0 +1,15 @@
+.\objects\spi2.o: ..\bsp\src\spi2.c
+.\objects\spi2.o: ..\bsp\inc\spi2.h
+.\objects\spi2.o: ..\app\stm32f10x.h
+.\objects\spi2.o: ..\CORE\core_cm3.h
+.\objects\spi2.o: G:\MDK5.2.3\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\spi2.o: ..\app\system_stm32f10x.h
+.\objects\spi2.o: ..\app\stm32f10x_conf.h
+.\objects\spi2.o: ..\STM32F10x_FWLib\inc\stm32f10x_dma.h
+.\objects\spi2.o: ..\app\stm32f10x.h
+.\objects\spi2.o: ..\STM32F10x_FWLib\inc\stm32f10x_gpio.h
+.\objects\spi2.o: ..\STM32F10x_FWLib\inc\stm32f10x_rcc.h
+.\objects\spi2.o: ..\STM32F10x_FWLib\inc\stm32f10x_spi.h
+.\objects\spi2.o: ..\STM32F10x_FWLib\inc\stm32f10x_tim.h
+.\objects\spi2.o: ..\STM32F10x_FWLib\inc\stm32f10x_usart.h
+.\objects\spi2.o: ..\STM32F10x_FWLib\inc\misc.h

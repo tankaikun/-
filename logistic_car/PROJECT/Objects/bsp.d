@@ -35,3 +35,4 @@
 .\objects\bsp.o: ..\bsp\inc\usart3.h
 .\objects\bsp.o: ..\driver\inc\gprs.h
 .\objects\bsp.o: ..\driver\inc\gps.h
+.\objects\bsp.o: ..\driver\inc\nrf24l01.h

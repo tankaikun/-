@@ -1,0 +1,8 @@
+*.[ao]
+*.htm
+*.crf
+<<<<<<< HEAD
+./logistic_car/PROJECT/Objects
+=======
+/PROJECT/Objects
+>>>>>>> v180305

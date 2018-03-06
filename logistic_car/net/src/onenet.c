@@ -96,7 +96,7 @@ void OneNet_RevPro(unsigned char *dataPtr)
 	{
 		//UsartPrintf(USART_DEBUG, "TCP CLOSED\r\n");
 	}
-	else
+	else 
 	{
 		// 这里用来检测是否发送成功
 		if(strstr((char *)dataPtr, "succ"))

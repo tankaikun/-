@@ -2,6 +2,7 @@
 #include "usart2.h"
 #include "usart3.h"
 #include "gprs.h"
+#include "nrf24l01.h"
 
 /*******************************************************************************
 * Function Name  : RCC_Configuration
@@ -76,8 +77,6 @@ void UnableJTAG(void)
 
 
 
-
-
 /*******************************************************************************
 * Function Name  : GPIO_Configuration
 * Description    : Configures the different GPIO ports.
@@ -111,8 +110,6 @@ void NVIC_Configuration(void)
 }
 
 
-
-
 /* ***************************************************************************** */
 
 void BSP_Init(void)
@@ -130,6 +127,10 @@ void BSP_Init(void)
 
 	USART2_Init(115200);
 
+
+	SPI_NRF_Init();
+
+	NRF_Check();
 	
 }
 

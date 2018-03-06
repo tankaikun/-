@@ -1,0 +1,57 @@
+#ifndef __SPI2_H
+#define __SPI2_H
+
+#include "stm32f10x.h"
+
+/* NRF24L01引脚 */
+#define CC1101_SPI_CE_PIN     GPIO_Pin_9
+#define CC1101_SPI_CE_PORT    GPIOD
+#define CC1101_SPI_CE_CLK     RCC_APB2Periph_GPIOD
+
+#define CC1101_SPI_IRQ_PIN    GPIO_Pin_8
+#define CC1101_SPI_IRQ_PORT   GPIOD
+#define CC1101_SPI_IRQ_CLK    RCC_APB2Periph_GPIOD
+
+#define CC1101_SPI_CSN_PIN    GPIO_Pin_12
+#define CC1101_SPI_CSN_PORT   GPIOB
+#define CC1101_SPI_CSN_CLK    RCC_APB2Periph_GPIOB
+
+#define CC1101_SPI_SCK_PIN    GPIO_Pin_13	
+#define CC1101_SPI_SCK_PORT   GPIOB
+#define CC1101_SPI_SCK_CLK    RCC_APB2Periph_GPIOB 
+
+#define CC1101_SPI_MISO_PIN    GPIO_Pin_14
+#define CC1101_SPI_MISO_PORT   GPIOB
+#define CC1101_SPI_MISO_CLK    RCC_APB2Periph_GPIOB 
+
+#define CC1101_SPI_MOSI_PIN    GPIO_Pin_15
+#define CC1101_SPI_MOSI_PORT   GPIOB
+#define CC1101_SPI_MOSI_CLK    RCC_APB2Periph_GPIOB 
+
+
+
+#define SPI2_CSN_HIGH()     GPIO_SetBits(CC1101_SPI_CSN_PORT, CC1101_SPI_CSN_PIN)
+#define SPI2_CSN_LOW()      GPIO_ResetBits(CC1101_SPI_CSN_PORT, CC1101_SPI_CSN_PIN)	
+		 
+#define SPI2_MOSI_HIGH()	GPIO_SetBits(CC1101_SPI_MOSI_PORT, CC1101_SPI_MOSI_PIN)
+#define SPI2_MOSI_LOW()	    GPIO_ResetBits(CC1101_SPI_MOSI_PORT, CC1101_SPI_MOSI_PIN)
+
+#define SPI2_MISO_HIGH()	GPIO_SetBits(CC1101_SPI_MISO_PORT, CC1101_SPI_MOSI_PIN)
+#define SPI2_MISO_LOW()	    GPIO_ResetBits(CC1101_SPI_MISO_PORT, CC1101_SPI_MOSI_PIN)
+#define SPI2_READ_MISO()	GPIO_ReadInputDataBit (CC1101_SPI_MISO_PORT, CC1101_SPI_MOSI_PIN)  
+
+#define SPI2_SCK_HIGH()		GPIO_SetBits(CC1101_SPI_SCK_PORT, CC1101_SPI_SCK_PIN)
+#define SPI2_SCK_LOW()	    GPIO_ResetBits(CC1101_SPI_SCK_PORT, CC1101_SPI_SCK_PIN)
+
+#define SPI2_CE_HIGH()	    GPIO_SetBits(CC1101_SPI_CE_PORT, CC1101_SPI_CE_PIN)
+#define SPI2_CE_LOW()	    GPIO_ResetBits(CC1101_SPI_CE_PORT, CC1101_SPI_CE_PIN)
+			 
+#define SPI2_READ_IRQ()		GPIO_ReadInputDataBit (CC1101_SPI_IRQ_PORT, CC1101_SPI_IRQ_PIN)  
+
+
+void spi_gpio_config(void);
+uint8_t drv_spi_read_write_byte( uint8_t TxByte );
+void drv_spi_read_write_string( uint8_t* ReadBuffer, uint8_t* WriteBuffer, uint16_t Length );
+
+
+#endif /* __SPI2_H */

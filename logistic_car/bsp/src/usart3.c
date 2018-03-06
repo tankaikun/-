@@ -4,10 +4,10 @@
 #include "bsp.h"
 #include "stdio.h"
 
-int flag_gps = 0;
+int g_flag_gps = 0;
 
 /* DMA接收缓冲  */
-uint8_t gps_rbuff[GPS_RBUFF_SIZE];
+uint8_t g_gps_rbuff[GPS_RBUFF_SIZE];
 
 
 static void usart3_init(int bound)
@@ -59,7 +59,7 @@ static void gps_dma_config(void)
     DMA_DeInit(DMA1_Channel3);									//DMA1通道3配置  
     
     DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t)(&USART3->DR);			//外设地址 
-    DMA_InitStructure.DMA_MemoryBaseAddr = (uint32_t)gps_rbuff;					//内存地址  
+    DMA_InitStructure.DMA_MemoryBaseAddr = (uint32_t)g_gps_rbuff;					//内存地址  
     DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralSRC;							//dma传输方向单向  
     DMA_InitStructure.DMA_BufferSize = GPS_RBUFF_SIZE;							//设置DMA在传输时缓冲区的长度  
     DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable;			//设置DMA的外设递增模式，一个外设    
@@ -95,7 +95,7 @@ void USART3_IRQHandler(void)
 		res = USART3->DR;		// 清除中断中断标志位
 
 		DMA_Cmd(DMA1_Channel3, DISABLE);
-		flag_gps = 1;           // 接受完成
+		g_flag_gps = 1;           // 接受完成
 
 		//设置传输数据长度  
     DMA_SetCurrDataCounter(DMA1_Channel3,GPS_RBUFF_SIZE); 
